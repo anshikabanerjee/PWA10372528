@@ -1,534 +1,445 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		*,*:before,*:after {
-            box-sizing: border-box;
-          }
-          html {
-            font-size: 16px;
-          }
-          
-          .plane {
-            margin: 20px auto;
-            max-width: 300px;
-          }
-          
-          .cockpit {
-            height: 250px; 
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-            border-bottom: 5px solid #d8d8d8;
-            &:before {
-              content: "";
-              display: block;
-              position: absolute;
-              top: 0;
-              left: 0;
-              height: 500px;
-              width: 100%;
-              border-radius: 50%;
-              border-right: 5px solid #d8d8d8;
-              border-left: 5px solid #d8d8d8;
-            }
-            h1 {
-              width: 60%;
-              margin: 100px auto 35px auto;
-            }
-          }
-          
-          .exit {
-            position: relative;
-            height: 50px;
-            &:before,
-            &:after {
-              content: "EXIT";
-              font-size: 14px;
-              line-height: 18px;
-              padding: 0px 2px;
-              font-family: "Arial Narrow", Arial, sans-serif;
-              display: block;
-              position: absolute;
-              background: green;
-              color: white;
-              top: 50%;
-              transform: translate(0, -50%);
-            }
-            &:before {
-              left: 0;
-            }
-            &:after {
-              right: 0;
-            }
-          }
-          
-          .fuselage {
-            border-right: 5px solid #d8d8d8;
-            border-left: 5px solid #d8d8d8;
-          }
-          
-          ol {
-            list-style :none;
-            padding: 0;
-            margin: 0;
-          }
-          
-          .row {
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Seat</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+      body {
+        padding-top: 54px;
+      }
+      @media (min-width: 992px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+
+    </style>
+
+    <!-- Custom images 1-->
+    <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+    <link rel="manifest" href="img/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<style>
+.seat { border: solid 1px red; width: 50px; height: 50px ; margin: 5px;}
+.reserved { background-color: red }
+.available {background-color: yellow }
+.selected { background-color: green }
+</style>
+
+<!-- Custom images 1-->
+<link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="img/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+<link rel="manifest" href="img/icons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Movies At Dundrum</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="seat.html">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="seat.html">Plays</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="form.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="location.html">Location</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="mt-5">MOVIES AT DUNDRUM</h1>
+          <p class="lead">SELECT SEATS</p>
+          <div class="container" class="col-md-10">
+
+            <div class="row">
+            <div class="col-md-6">
             
-          }
-          
-          .seats {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: flex-start;  
-          }
-          
-          .seat {
-            display: flex;
-            flex: 0 0 14.28571428571429%;
-            padding: 5px;
-            position: relative;  
-            &:nth-child(3) {
-              margin-right: 14.28571428571429%;
-            }
-            input[type=checkbox] {
-              position: absolute;
-              opacity: 0;
-            }
-            input[type=checkbox]:checked {
-              + label {
-                background: #bada55;      
-                -webkit-animation-name: rubberBand;
-                    animation-name: rubberBand;
-                animation-duration: 300ms;
-                animation-fill-mode: both;
+              <select id="chooseAnOption">
+              <option value="0">Select Number</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="4">Four</option>
+              <option value="5">Five</option>
+              <option value="6">Six</option>
+              <option value="7">Seven</option>
+              
+              </select>
+              
+              
+              
+              <select id="chooseDay">
+              <option value="0">Select an day</option>
+              <option value="mon">Monday</option>
+              <option value="tue">Tuesday</option>
+              <option value="wed">Wednesday</option>
+              <option value="thur">Thursday</option>
+              <option value="fri">Friday</option>
+              <option value="sat">Saturday</option>
+              <option value="sun">Sunday</option>
+              </select>
+              
+              
+              
+            </div>
+            </div> <!-- row -->
+            
+            <div class="row">
+              <div class="col-md-4">
+                <div class="dayItem alert alert-primary" role="alert" id="mon" style="display: none">
+                  <button id="bookSeating">Book Seating</button>
+                  <ul id='ulMon'>
+                  </ul>
+                </div>
+            
+            
+                <div class="dayItem alert alert-primary" role="alert" id="tue" style="display: none">
+                  <button id="bookSeating">Book Seating</button>
+                  <ul id='ulTue'>
+                  </ul>
+                </div>	
+            
+                <div class="dayItem alert alert-primary" role="alert" id="wed" style="display: none">
+                  <button id="bookSeating">Book Seating</button>
+                  <ul id='ulWed'>
+                  </ul>
+                </div>
+            
+                <div class="dayItem alert alert-primary" role="alert" id="thur" style="display: none">
+                  <button id="bookSeating">Book Seating</button>
+                  <ul id='ulThur'>
+                  </ul>
+                </div>
+            
+                <div class="dayItem alert alert-primary" role="alert" id="fri" style="display: none">
+                  <button id="bookSeating">Book Seating</button>
+                  <ul id='ulFri'>
+                  </ul>
+                </div>
+            
+                <div class="dayItem alert alert-primary" role="alert" id="sat" style="display: none">
+                  <button id="bookSeating">Book Seating</button>
+                  <ul id='ulSat'>
+                  </ul>
+                </div>
+                            
+                <div class="dayItem alert alert-primary" role="alert" id="sun" style="display: none">
+                  <button id="bookSeating">Book Seating</button>
+                  <ul id='ulSun'>
+                  </ul>
+                </div>
+              
+              </div>
+            </div>
+            
+            
+            
+            
+            </div> <!-- container -->
+            
+            <div class="container" id="seatingLayout" style="display: none">
+            <div class="row">
+            
+            <div class="seat reserved" data-row="1" data-col="1"></div>
+            <div class="seat available" data-row="8" data-col="2"></div>
+            <div class="seat available" data-row="7" data-col="3"></div>
+            <div class="seat available" data-row="6" data-col="4"></div>
+            <div class="seat available" data-row="5" data-col="5"></div>
+            <div class="seat reserved" data-row="1" data-col="6"></div>
+            <div class="seat available" data-row="8" data-col="7"></div>
+            <div class="seat available" data-row="7" data-col="8"></div>
+            <div class="seat available" data-row="6" data-col="9"></div>
+            <div class="seat available" data-row="5" data-col="0"></div>
+            <div class="seat reserved" data-row="1" data-col="1"></div>
+            <div class="seat available" data-row="8" data-col="2"></div>
+            <div class="seat available" data-row="7" data-col="3"></div>
+            <div class="seat available" data-row="6" data-col="4"></div>
+            <div class="seat available" data-row="5" data-col="5"></div>
+            <div class="seat reserved" data-row="1" data-col="1"></div>
+            <div class="seat available" data-row="8" data-col="2"></div>
+            <div class="seat available" data-row="7" data-col="3"></div>
+            <div class="seat available" data-row="6" data-col="4"></div>
+            <div class="seat available" data-row="5" data-col="5"></div>
+            <div class="seat reserved" data-row="1" data-col="1"></div>
+            <div class="seat available" data-row="8" data-col="2"></div>
+            <div class="seat available" data-row="7" data-col="3"></div>
+            <div class="seat available" data-row="6" data-col="4"></div>
+            <div class="seat available" data-row="5" data-col="5"></div>
+            <div class="seat reserved" data-row="1" data-col="1"></div>
+            <div class="seat available" data-row="8" data-col="2"></div>
+            <div class="seat available" data-row="7" data-col="3"></div>
+            <div class="seat available" data-row="6" data-col="4"></div>
+            <div class="seat available" data-row="5" data-col="5"></div>
+            <div class="seat reserved" data-row="1" data-col="1"></div>
+            <div class="seat available" data-row="8" data-col="2"></div>
+            <div class="seat available" data-row="7" data-col="3"></div>
+            <div class="seat available" data-row="6" data-col="4"></div>
+            <div class="seat available" data-row="5" data-col="5"></div>
+            <div class="seat reserved" data-row="1" data-col="1"></div>
+            <div class="seat available" data-row="8" data-col="2"></div>
+            <div class="seat available" data-row="7" data-col="3"></div>
+            <div class="seat available" data-row="6" data-col="4"></div>
+            <div class="seat available" data-row="5" data-col="5"></div>
+            <div class="seat reserved" data-row="1" data-col="1"></div>
+            <div class="seat available" data-row="8" data-col="2"></div>
+            <div class="seat available" data-row="7" data-col="3"></div>
+            <div class="seat available" data-row="6" data-col="4"></div>
+            <div class="seat available" data-row="5" data-col="5"></div>
+            <div class="seat reserved" data-row="1" data-col="1"></div>
+            <div class="seat available" data-row="8" data-col="2"></div>
+            <div class="seat available" data-row="7" data-col="3"></div>
+            <div class="seat available" data-row="6" data-col="4"></div>
+            <div class="seat available" data-row="5" data-col="5"></div>
+            
+            
+            
+            </div>
+            
+            
+            
+            </div>
+            
+            
+            <script>
+            $(function () {
+            
+            
+            $('#chooseAnOption').on('change', function () {
+            
+              console.log("Select has changed value",$(this).val());
+              var changedValue = parseInt($(this).val());
+              console.log("Select has changed value to %d", changedValue);
+            
+              
+              
+              var chosentext = $("#chooseAnOption :selected").text();
+              console.log("Chosen text is now %s", chosentext);
+            
+            });
+            
+            
+            $('#bookSeating').on("click", function () {
+            
+            $('#seatingLayout').show();
+            
+            });
+            
+            
+            })
+            
+            
+            
+            $(function () {
+            
+            $(".seat").on("click", function() {
+            
+            
+              if (! $(this).hasClass("reserved") ) {
+              
+                  //$(this).addClass("selected");
+                  $(this).toggleClass("selected");
+                  
+                  var countSelected = $(".seat.selected").length;
+                  
+                  console.log("Count selected is %d",countSelected);
+                  
+                   $( ".seat.selected" ).each(function( index, element ) {
+                      console.log("You chose row %d and col %d", $(this).data("row"),$(this).data("col"));
+              });
+                  
+                  
+                  
+                  
               }
-            }
-            input[type=checkbox]:disabled {
-              + label {
-                background: #dddddd;
-                text-indent: -9999px;
-                overflow: hidden;
-                &:after {
-                  content: "X";
-                  text-indent: 0;
-                  position: absolute;
-                  top: 4px;
-                  left: 50%;
-                  transform: translate(-50%, 0%);
+            
+            
+            
+            } );
+            
+            })
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            $(function () {
+            
+            var url = 'movie.json';
+            $.ajax({
+              dataType: "json",
+              url: url,
+              
+              success: function (result) { 
+              
+               var tmpResult = result.slice(1,10);
+              console.log(tmpResult);
+              
+              
+              for(var i = 0; i < tmpResult.length; i++) {
+              
+                $('#ulMon').append("<li>" + tmpResult[i]['title'] + "</li>");
+                
+                console.log( tmpResult[i]['runningTimes']);
+                
+                var ulString = "<ul>";
+                for(var j = 0; j < tmpResult[i]['runningTimes']['mon'].length; j++) {
+                
+                ulString += "<li>" + tmpResult[i]['runningTimes']['mon'][j] + "</li>";
+            
                 }
-                &:hover {
-                  box-shadow: none;
-                  cursor: not-allowed;
-                }
-              }
-            }
-            label {    
-              display: block;
-              position: relative;    
-              width: 100%;    
-              text-align: center;
-              font-size: 14px;
-              font-weight: bold;
-              line-height: 1.5rem;
-              padding: 4px 0;
-              background: #F42536;
-              border-radius: 5px;
-              animation-duration: 300ms;
-              animation-fill-mode: both;
-              
-              &:before {
-                content: "";
-                position: absolute;
-                width: 75%;
-                height: 75%;
-                top: 1px;
-                left: 50%;
-                transform: translate(-50%, 0%);
-                background: rgba(255,255,255,.4);
-                border-radius: 3px;
-              }
-              &:hover {
-                cursor: pointer;
-                box-shadow: 0 0 0px 2px #5C6AFF;
+                ulString += "</ul>";
+                
+                
+                $('#ulMon').append(ulString);
+            
               }
               
-            }
-          }
-          
-          @-webkit-keyframes rubberBand {
-            0% {
-              -webkit-transform: scale3d(1, 1, 1);
-                      transform: scale3d(1, 1, 1);
-            }
-          
-            30% {
-              -webkit-transform: scale3d(1.25, 0.75, 1);
-                      transform: scale3d(1.25, 0.75, 1);
-            }
-          
-            40% {
-              -webkit-transform: scale3d(0.75, 1.25, 1);
-                      transform: scale3d(0.75, 1.25, 1);
-            }
-          
-            50% {
-              -webkit-transform: scale3d(1.15, 0.85, 1);
-                      transform: scale3d(1.15, 0.85, 1);
-            }
-          
-            65% {
-              -webkit-transform: scale3d(.95, 1.05, 1);
-                      transform: scale3d(.95, 1.05, 1);
-            }
-          
-            75% {
-              -webkit-transform: scale3d(1.05, .95, 1);
-                      transform: scale3d(1.05, .95, 1);
-            }
-          
-            100% {
-              -webkit-transform: scale3d(1, 1, 1);
-                      transform: scale3d(1, 1, 1);
-            }
-          }
-          
-          @keyframes rubberBand {
-            0% {
-              -webkit-transform: scale3d(1, 1, 1);
-                      transform: scale3d(1, 1, 1);
-            }
-          
-            30% {
-              -webkit-transform: scale3d(1.25, 0.75, 1);
-                      transform: scale3d(1.25, 0.75, 1);
-            }
-          
-            40% {
-              -webkit-transform: scale3d(0.75, 1.25, 1);
-                      transform: scale3d(0.75, 1.25, 1);
-            }
-          
-            50% {
-              -webkit-transform: scale3d(1.15, 0.85, 1);
-                      transform: scale3d(1.15, 0.85, 1);
-            }
-          
-            65% {
-              -webkit-transform: scale3d(.95, 1.05, 1);
-                      transform: scale3d(.95, 1.05, 1);
-            }
-          
-            75% {
-              -webkit-transform: scale3d(1.05, .95, 1);
-                      transform: scale3d(1.05, .95, 1);
-            }
-          
-            100% {
-              -webkit-transform: scale3d(1, 1, 1);
-                      transform: scale3d(1, 1, 1);
-            }
-          }
-          
-          .rubberBand {
-            -webkit-animation-name: rubberBand;
-                    animation-name: rubberBand;
-          }
-	</head>
-	<body>
-        <div class="plane">
-            <div class="cockpit">
-              <h1>Please select a seat</h1>
-            </div>
-            <div class="exit exit--front fuselage">
               
-            </div>
-            <ol class="cabin fuselage">
-              <li class="row row--1">
-                <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="1A" />
-                    <label for="1A">1A</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="1B" />
-                    <label for="1B">1B</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="1C" />
-                    <label for="1C">1C</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" disabled id="1D" />
-                    <label for="1D">Occupied</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="1E" />
-                    <label for="1E">1E</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="1F" />
-                    <label for="1F">1F</label>
-                  </li>
-                </ol>
-              </li>
-              <li class="row row--2">
-                <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="2A" />
-                    <label for="2A">2A</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="2B" />
-                    <label for="2B">2B</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="2C" />
-                    <label for="2C">2C</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="2D" />
-                    <label for="2D">2D</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="2E" />
-                    <label for="2E">2E</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="2F" />
-                    <label for="2F">2F</label>
-                  </li>
-                </ol>
-              </li>
-              <li class="row row--3">
-                <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="3A" />
-                    <label for="3A">3A</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="3B" />
-                    <label for="3B">3B</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="3C" />
-                    <label for="3C">3C</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="3D" />
-                    <label for="3D">3D</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="3E" />
-                    <label for="3E">3E</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="3F" />
-                    <label for="3F">3F</label>
-                  </li>
-                </ol>
-              </li>
-              <li class="row row--4">
-                <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="4A" />
-                    <label for="4A">4A</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="4B" />
-                    <label for="4B">4B</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="4C" />
-                    <label for="4C">4C</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="4D" />
-                    <label for="4D">4D</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="4E" />
-                    <label for="4E">4E</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="4F" />
-                    <label for="4F">4F</label>
-                  </li>
-                </ol>
-              </li>
-              <li class="row row--5">
-                <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="5A" />
-                    <label for="5A">5A</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="5B" />
-                    <label for="5B">5B</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="5C" />
-                    <label for="5C">5C</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="5D" />
-                    <label for="5D">5D</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="5E" />
-                    <label for="5E">5E</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="5F" />
-                    <label for="5F">5F</label>
-                  </li>
-                </ol>
-              </li>
-              <li class="row row--6">
-                <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="6A" />
-                    <label for="6A">6A</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="6B" />
-                    <label for="6B">6B</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="6C" />
-                    <label for="6C">6C</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="6D" />
-                    <label for="6D">6D</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="6E" />
-                    <label for="6E">6E</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="6F" />
-                    <label for="6F">6F</label>
-                  </li>
-                </ol>
-              </li>
-              <li class="row row--7">
-                <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="7A" />
-                    <label for="7A">7A</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="7B" />
-                    <label for="7B">7B</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="7C" />
-                    <label for="7C">7C</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="7D" />
-                    <label for="7D">7D</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="7E" />
-                    <label for="7E">7E</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="7F" />
-                    <label for="7F">7F</label>
-                  </li>
-                </ol>
-              </li>
-              <li class="row row--8">
-                <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="8A" />
-                    <label for="8A">8A</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="8B" />
-                    <label for="8B">8B</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="8C" />
-                    <label for="8C">8C</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="8D" />
-                    <label for="8D">8D</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="8E" />
-                    <label for="8E">8E</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="8F" />
-                    <label for="8F">8F</label>
-                  </li>
-                </ol>
-              </li>
-              <li class="row row--9">
-                <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="9A" />
-                    <label for="9A">9A</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="9B" />
-                    <label for="9B">9B</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="9C" />
-                    <label for="9C">9C</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="9D" />
-                    <label for="9D">9D</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="9E" />
-                    <label for="9E">9E</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="9F" />
-                    <label for="9F">9F</label>
-                  </li>
-                </ol>
-              </li>
-              <li class="row row--10">
-                <ol class="seats" type="A">
-                  <li class="seat">
-                    <input type="checkbox" id="10A" />
-                    <label for="10A">10A</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="10B" />
-                    <label for="10B">10B</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="10C" />
-                    <label for="10C">10C</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="10D" />
-                    <label for="10D">10D</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="10E" />
-                    <label for="10E">10E</label>
-                  </li>
-                  <li class="seat">
-                    <input type="checkbox" id="10F" />
-                    <label for="10F">10F</label>
-                  </li>
-                </ol>
-              </li>
-            </ol>
-            <div class="exit exit--back fuselage">
               
-            </div>
-          </div>
-	</body>
+            
+              }
+              
+              
+            });
+            
+            });
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            $(function () {
+            
+            
+            $('#chooseDay').on('change', function () {
+            
+            
+            
+            
+              console.log("Select has changed value",$(this).val());
+              var changedValue = $(this).val();
+              console.log("Select has changed value to %s", changedValue);
+              
+              //Hide all dayItems
+               $('.dayItem').hide();
+               $('#seatingLayout').hide();
+            
+              
+              //Build up an id and then use it to hide / show items	
+              var dayId = '#' + changedValue; // eg # + mon
+              $(dayId).show();
+              
+              
+              var chosentext = $("#chooseDay :selected").text();
+              console.log("Chosen text is now %s", chosentext);
+            
+            });
+            
+            })
+            
+            
+            
+            
+            </script>
+                 
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
 </html>
